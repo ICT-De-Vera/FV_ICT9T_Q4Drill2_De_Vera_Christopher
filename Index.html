@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4Practice2</title>
+</head>
+<body>
+    <div class="card" style="width: 18rem;">
+        <h1>Switch Statement</h1>
+        <p>Enter the current temperature (in Celsius):</p>
+        <input type="number" id="temperature" placeholder="Temperature">
+        <p>Enter the current humidity (in percentage):</p>
+        <input type="number" id="humidity" placeholder="Humidity">
+    <button class="btn btn-info" onclick="CheckHI()">Check Temps</button>
+    </div>
+    <script>
+        HeatIndex = temperature + (0.33 * humidity) - 4;
+        function CheckHI(){
+            var HeatIndex = temperature + (0.33 * humidity) - 4;
+                if(HeatIndex >= 80){
+                    alert("It's hot outside! Stay hydrated and take breaks in the shade.")
+                }
+                else if(HeatIndex >= 60 && HeatIndex < 80){
+                    alert("The weather is warm. Enjoy your day!")
+                }
+                else if(HeatIndex >= 40 && HeatIndex < 60){
+                    alert("It's a bit chilly. Consider wearing a light jacket.")
+                }
+                else{
+                    alert("It's cold outside! Dress warmly and stay safe.")
+                }
+            }
+    </script>
+    
+</body>
+</html>
