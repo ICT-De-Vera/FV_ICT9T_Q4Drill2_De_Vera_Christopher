@@ -3,32 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <title>Q4Practice2</title>
+<style>
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/047/386/051/small_2x/heat-stroke-concept-for-climate-change-heat-wave-or-global-warming-orange-sky-with-clouds-and-bright-sun-photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.card {
+    margin: 200px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.h1 {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: bold;
+}
+
+</style>
 </head>
 <body>
-    <div class="card" style="width: 18rem;">
-        <h1>Switch Statement</h1>
+    <div class="card card-body bg-dark text-white col-md-6 col-lg-4 rounded-4" style="width: 36rem; height: 32rem;">
+        <h1>Heat Index Calculator</h1>  
+        <br>
+        <details open>
+            <summary style="cursor: pointer; font-weight: bold;">Instructions</summary>
+            <p style="margin-top: 10px;">Input the temperature in Celsius on the 1st input field
+                then input the humidity in the 2nd input field
+                if you want to know how hot it is outside.</p>
+        </details>
+        <br>
         <p>Enter the current temperature (in Celsius):</p>
-        <input type="number" id="temperature" placeholder="Temperature">
+        <input class="bg-dark text-white" type="number" id="temperature" placeholder="Temperature example: 30">
+        <br>
         <p>Enter the current humidity (in percentage):</p>
-        <input type="number" id="humidity" placeholder="Humidity">
-    <button class="btn btn-info" onclick="CheckHI()">Check Temps</button>
+        <input class="bg-dark text-white" type="number" id="humidity" placeholder="Humidity example: 60">
+        <br><br>
+        <button class="btn btn-warning text-white" onclick="CheckHI()">Check Temps</button>
     </div>
     <script>
-        HeatIndex = temperature + (0.33 * humidity) - 4;
         function CheckHI(){
-            var HeatIndex = temperature + (0.33 * humidity) - 4;
-                if(HeatIndex >= 80){
-                    alert("It's hot outside! Stay hydrated and take breaks in the shade.")
+            var temperature = document.getElementById("temperature").value;
+            var humidity = document.getElementById("humidity").value;
+            var HeatIndex = parseFloat(temperature) + (0.33 * parseFloat(humidity)) - 4;
+                if(HeatIndex >= 54.1){
+                    alert(HeatIndex + " Extreme Danger: Avoid outdoor activities and stay in a cool place.")
                 }
-                else if(HeatIndex >= 60 && HeatIndex < 80){
-                    alert("The weather is warm. Enjoy your day!")
+                if(HeatIndex >= 41.1 && HeatIndex <= 54.0){
+                    alert(HeatIndex + " Danger: It's extremely hot outside! Take precautions to stay cool and hydrated.")
                 }
-                else if(HeatIndex >= 40 && HeatIndex < 60){
-                    alert("It's a bit chilly. Consider wearing a light jacket.")
+                else if(HeatIndex >= 32.1 && HeatIndex < 41.0){
+                    alert(HeatIndex + " Extreme caution: It's very hot outside! Limit outdoor activities and stay cool.")
+                }
+                else if(HeatIndex >= 27 && HeatIndex < 32.0){
+                    alert(HeatIndex + " Caution: It's a bit warm outside. Stay hydrated and avoid prolonged sun exposure.")
                 }
                 else{
-                    alert("It's cold outside! Dress warmly and stay safe.")
+                    alert(HeatIndex + " It's a bit cold outside! Dress warmly and stay safe.")
                 }
             }
     </script>
